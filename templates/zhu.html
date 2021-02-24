@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>数码宝贝</title>
+  <link rel="stylesheet" href="/static/css/layui.css">
+
+  <script type="text/javascript" scr="/static/js/layui.js"></script>
+
+<style>
+    legend {text-align:center;}
+    img
+    {
+        height:100px;width:200px;
+        border-radius: 8px;
+    }
+    .w{font-weight:900;}
+</style>
+
+
+<style>
+    .search_form{
+        width:602px;
+        height:180px;
+        position:fixed;
+         left:40%;
+         top:60px;
+         bottom: 0px; 
+        /* width: 250px; */ 
+    }
+ 
+    /*左边输入框设置样式*/
+    .input_text{
+        width:400px;
+        height: 60px;
+        border:1px solid green;
+        /*清除掉默认的padding*/
+        padding:0px;
+        /*提示字首行缩进*/
+        text-indent: 10px;
+        /*去掉蓝色高亮框*/
+        outline: none;
+        /*用浮动解决内联元素错位及小间距的问题*/
+        float:left;
+    }
+ 
+    .input_sub{
+        width:100px;
+        height: 62px;
+        background: blue;
+        /*去掉submit按钮默认边框*/
+        border:0px;
+        /*改成右浮动也是可以的*/
+        float:left;
+        color:white;/*搜索的字体颜色为白色*/
+        cursor:pointer;/*鼠标变为小手*/
+    }
+    h1 {font-size:100px;}
+    img
+    {
+        height:90px;width:180px;
+        border-radius: 8px;
+     
+	
+	 /* 适用 IE8 及其更早版本 */
+    }
+
+</style>
+
+<style type="text/css"> /*设置翻页东西的样式，不过有些还没用上*/       
+			/* 左边栏 */
+            .sidebar{ 
+               /* position: fixed;  */
+				float: left;/*侧边栏居左，改为right可令侧边栏居右*/
+                top:60px;
+                bottom: 0px;
+                width: 250px;
+				/* background: black; */
+			}
+
+	
+	/*设置div样式的整体布局*/
+	.page-icon{
+		margin:20px 0 0 0;/*设置距离顶部20像素*/
+		font-size:0;/*修复行内元素之间空隙间隔*/
+		text-align:center;/*设置内容居中显示*/
+	}
+	
+	/*设置共有的的样式布局，主要是进行代码优化，提高运行效率*/
+	.page-icon a,.page-disabled,.page-next{
+		border:1px solid #ccc;
+		border-radius:3px;
+		padding:4px 10px 5px;
+		font-size:14PX;/*修复行内元素之间空隙间隔*/
+		margin-right:10px;
+	}
+	
+	/*对 a 标签进行样式布局 */
+	.page-icon a{
+		text-decoration:none;/*取消链接的下划线*/
+		color:#005aa0;
+	}
+	
+	.page-current{
+		color:#ff6600;
+		padding:4px 10px 5px;
+		font-size:14PX;/*修复行内元素之间空隙间隔*/
+	}
+	
+	.page-disabled{
+		color:#ccc;
+	}
+	
+	.page-next i,.page-disabled i{
+		cursor:pointer;/*设置鼠标经过时的显示状态，这里设置的是显示状态为小手状态*/
+		display:inline-block;/*设置显示的方式为行内块元素*/
+		width:5px;
+		height:9px;
+		background-image:url(http://img.mukewang.com/547fdbc60001bab900880700.gif);/*获取图标的背景链接*/
+	}
+	.page-disabled i{
+		background-position:-80px -608px;
+		margin-right:3px;
+	}
+ 
+	.page-next i{
+		background-position:-62px -608px;
+		margin-left:3px;
+	}
+</style>
+
+</head>
+
+
+ 
+<!-- 左栏 -->
+<div class="content">
+	<div class="sidebar">
+
+    <div class="layui-collapse">
+    
+                <div class="layui-colla-item">
+                     <h2 class='layui-colla-title'><a href="http://127.0.0.1:8081/result2?keyword=手机&Search=提交">手机</a> </h2>
+                     <div class='layui-colla-content layui-show'>
+                     <a href="http://127.0.0.1:8081/result2?keyword=华为手机&Search=提交">华为</a> &nbsp;
+                     <a href="http://127.0.0.1:8081/result2?keyword=苹果手机&Search=提交">苹果</a> &nbsp;
+                     <a href="http://127.0.0.1:8081/result2?keyword=小米手机&Search=提交">小米</a>&nbsp;
+                     <a href="http://127.0.0.1:8081/result2?keyword=vivo手机&Search=提交">vivo</a> &nbsp;
+                     <a href="http://127.0.0.1:8081/result2?keyword=三星手机&Search=提交">三星</a> 
+
+                    </div>
+                </div>
+     
+    
+
+                <div class="layui-colla-item">
+                        <h2 class='layui-colla-title'><a href="http://127.0.0.1:8081/result2?keyword=电脑&Search=提交">电脑</a> 
+                        </h2>
+                            <div class='layui-colla-content layui-show'>
+                                <div class="layui-colla-item">
+                                    <h2 class='layui-colla-title'>分类</h2>
+                                        <div class='layui-colla-content layui-show'>
+                                        <a href="http://127.0.0.1:8081/result2?keyword=笔记本&Search=提交">笔记本</a>&nbsp;   
+                                        <a href="http://127.0.0.1:8081/result2?keyword=平板&Search=提交">平板</a> 
+                                        </div>
+                                </div> 
+                                <div class="layui-colla-item">
+                                    <h2 class='layui-colla-title'>品牌</h2>
+                                        <div class='layui-colla-content layui-show'>
+                                        <a href="http://127.0.0.1:8081/result2?keyword=苹果电脑&Search=提交">苹果</a> &nbsp; 
+                                        <a href="http://127.0.0.1:8081/result2?keyword=联想电脑&Search=提交">联想</a>&nbsp;
+                                        <a href="http://127.0.0.1:8081/result2?keyword=惠普电脑&Search=提交">惠普</a>&nbsp;
+                                        <a href="http://127.0.0.1:8081/result2?keyword=戴尔电脑&Search=提交">戴尔</a>&nbsp;
+                                        <a href="http://127.0.0.1:8081/result2?keyword=华硕电脑&Search=提交">华硕</a>
+                                        </div>
+                                </div> 
+                            
+                            </div>
+
+                </div>
+
+                <div class="layui-colla-item">
+                    <h2 class='layui-colla-title'><a href="http://127.0.0.1:8081/result2?keyword=智能数码&Search=提交">智能数码</a></h2>
+                        <div class='layui-colla-content layui-show'>
+
+                            <div class="layui-colla-item">
+                                <h2 class='layui-colla-title'>分类</h2>
+                                    <div class='layui-colla-content layui-show'>
+                                    <a href="http://127.0.0.1:8081/result2?keyword=耳机&Search=提交"> 耳机</a>  &nbsp; 
+                                    <a href="http://127.0.0.1:8081/result2?keyword=音响&Search=提交"> 音响</a> &nbsp; 
+                                    <a href="http://127.0.0.1:8081/result2?keyword=手表&Search=提交">手表</a>
+                                    </div>
+                            </div> 
+
+                            <div class="layui-colla-item">
+                                <h2 class='layui-colla-title'>品牌</h2>
+                                    <div class='layui-colla-content layui-show'>
+                                    <a href="http://127.0.0.1:8081/result2?keyword=苹果智能数码&Search=提交"> 苹果</a>  &nbsp; 
+                                    <a href="http://127.0.0.1:8081/result2?keyword=索尼智能数码&Search=提交"> 索尼</a>  &nbsp; 
+                                    <a href="http://127.0.0.1:8081/result2?keyword=华为智能数码&Search=提交"> 华为</a>  &nbsp; 
+                                    <a href="http://127.0.0.1:8081/result2?keyword=小米智能数码&Search=提交"> 小米</a>  &nbsp; 
+
+
+                                    </div>
+                            </div> 
+                        
+                        </div>
+
+                </div>
+
+
+                <div class="layui-colla-item">
+                                <h2 class='layui-colla-title'> <a href="http://127.0.0.1:8081/result2?keyword=家电&Search=提交"> 家电 </a></h2>
+                                <div class='layui-colla-content layui-show'>
+
+                                <a href="http://127.0.0.1:8081/result2?keyword=电视&Search=提交"> 电视 </a> &nbsp;
+                                <a href="http://127.0.0.1:8081/result2?keyword=空调&Search=提交"> 空调 </a> &nbsp;
+                                <a href="http://127.0.0.1:8081/result2?keyword=冰箱&Search=提交"> 冰箱 </a> 
+                                
+                                </div>
+                </div>
+
+                <div class="layui-colla-item">
+                <h2 class='layui-colla-title'><a href="http://127.0.0.1:8081/result2?keyword=摄影&Search=提交">摄影 </a></h2>
+                        <div class='layui-colla-content layui-show'>
+                            <div class="layui-colla-item">
+                                <h2 class='layui-colla-title'>分类</h2>
+                                    <div class='layui-colla-content layui-show'>
+                                    <a href="http://127.0.0.1:8081/result2?keyword=相机&Search=提交"> 相机 </a> &nbsp;
+                                    <a href="http://127.0.0.1:8081/result2?keyword=镜头&Search=提交"> 镜头</a> &nbsp; 
+                                    <a href="http://127.0.0.1:8081/result2?keyword=摄影机&Search=提交">摄影机</a>     
+                                    </div>
+                            </div> 
+                            <div class="layui-colla-item">
+                                <h2 class='layui-colla-title'>品牌</h2>
+                                    <div class='layui-colla-content layui-show'>
+                                    <a href="http://127.0.0.1:8081/result2?keyword=佳能&Search=提交"> 佳能 </a> &nbsp;
+                                    <a href="http://127.0.0.1:8081/result2?keyword=索尼&Search=提交"> 索尼 </a> &nbsp;
+                                    <a href="http://127.0.0.1:8081/result2?keyword=徕卡&Search=提交"> 徕卡 </a> &nbsp;
+                                    <a href="http://127.0.0.1:8081/result2?keyword=松下&Search=提交"> 松下 </a> &nbsp;
+                                    </div>
+                            </div>        
+                        </div>
+                </div>
+   
+    </div>
+
+<div class="layui-body">
+
+  <style>
+    body{
+        background-image: url("/static/img/shop1.png");
+        background-repeat: no-repeat;
+        background-attachment:fixed;
+        background-position:70% 100%;
+       
+        
+        background-size:55%;
+        background-origin:content-box;
+    }
+    .moresearch{
+        width:500px;
+        height:350px;
+        position:fixed;
+         left:40%;
+         top:200px;
+         bottom: 0px; 
+        /* width: 250px; */ 
+    }
+ 
+    </style>
+       <br><br>
+        <!--制作搜索框-->
+        <!-- <form class="search_form" action="result" method="GET" autocomplete="off"> -->
+    <div class="search"> 
+        <!-- <input type="text" name="keywords" id="keywords" class="input_text" placeholder="请输入搜索内容">
+        <input type="submit" value="搜索" class="input_sub" id="search_button">
+    </div>
+        </form>
+        <br>
+        <form  class = "imgform" action="result" method="GET" autocomplete="off">
+            <div class="imgsearch"> 
+                <input type="file" name="keywords" id="keywords" class="input_text" placeholder="请输入搜索内容">
+                <input type="submit" value="搜索" class="input_sub" id="search_button">
+            </div>
+                </form> -->
+                <form class="search_form"action="result">
+                <div class="moresearch" align="center">
+                    <a href='/' style="color:rgb(0, 102, 255) ;font-size:20px">网页搜索</a>&nbsp;
+                    <a href='/im' style="color:rgb(0, 102, 255)  ;font-size:20px">图片搜索</a>
+                            <br>
+                            <br>
+                            <label style="font-size: 20px;">商品信息</label>
+                            <input type="keyword" name="keyword" size="30">
+                            <input type="submit" name="">
+                            <br>            
+                </div>
+            </form>
+</div>
+
+ 
+<script>
+//注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
+layui.use('element', function(){
+  var element = layui.element;
+  
+  //…
+});
+</script>
+                </div>
+</div>
+
+
+
+<script src="/static/js/layui.js"></script>
+
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+  
+});
+</script>
+
+</body>
+
+</html>

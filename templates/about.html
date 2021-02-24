@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>About</title>
+	<link rel="stylesheet" href="/static/css/layui.css"></link>
+    <link rel="stylesheet" href="/static/css/header.css"></link>
+</head>
+<body class="lay-de">
+    <div class="header">
+        <div class="header-wrap">
+            <h1 class="logo pull-left">
+                <a href="index">
+                    <!-- <img src="../img_warship/logo.jpg" alt="" class="logo-img"> -->
+                </a>
+            </h1>
+            <form class="layui-form detail-search pull-left" action="result" method="POST">
+                <div class="layui-form-item header-swrap">
+                    <div class="layui-input-block header-box">
+                      <i class="layui-icon layui-icon-search"></i>
+                      <input type="text" name="keywords" lay-verify="title" placeholder="请输入搜索条件" autocomplete="off"  class="layui-input">
+                    </div>
+                </div>
+            </form>
+            <div class="layui-nav pull-right">
+                <ul class="layui-nav pull-left">
+                  <li class="layui-nav-item layui-this"><a href="/">首页</a></li>
+                  <li class="layui-nav-item"><a href="about">关于</a></li>
+                </ul>
+
+            </div>
+            <div class="mobile-nav pull-right" id="mobile-nav">
+                <a href="javascript:;">
+                    <i class="layui-icon layui-icon-more"></i>
+                </a>
+            </div>
+        </div>
+        <ul class="pop-nav" id="pop-nav">
+            <li><a href="index">首页</a></li>
+            <li><a href="about">关于</a></li>
+        </ul>
+    </div>
+
+    <div class="container-wrap">
+        <div class="container container-message container-details container-about">
+                <div class="contar-wrap">
+                    <div class="item">
+                        <div class="item-box">
+                            <h2>关于</h2>
+                            <h3>EE202 2020秋 第25组</h3>
+                            <p>组长：杨宇博</p>
+                            <p>组员：</p>
+                            <p>臧浩男</p>
+                            <p>杨冠柔</p>
+                            <p>陈硕</p>
+                        </div>
+                    </div>			
+                </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+           <span>2020 12</span>
+           <span><a href="about" target="_blank">小组相关</a></span>
+           <span>Group 25</span>
+       </p>
+       </div>
+    </body>
+    </html>

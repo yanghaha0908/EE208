@@ -1,0 +1,129 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Searching Results</title>
+</head>
+<body>
+	<h1>Search</h1>
+	<form action="results">
+		<lable>Keyword</lable>
+		<input type="keyword" name="keyword">
+		<input type="submit" name="">
+	</form>
+	<h1>Searching Results for {{ keyword }}</h1>
+	<br>
+	{% for k in range(pic_li | length) %}
+		<div>
+			<img src={{ pic_li[k][2] }}>
+			<a href = {{ pic_li[k][1] }} style="font-size:20px;font-style:italic:font-weight:bold;color:blue"><i>{{ pic_li[k][0] }}</i></a>
+			<br>
+		</div>
+	{% endfor %}
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Index</title>
+	<link rel="stylesheet" href="/static/css/layui.css"></link>
+	<link rel="stylesheet" href="/static/css/header.css"></link>
+
+</head>
+<body class="lay-de">
+    <div class="header">
+        <div class="header-wrap">
+            <h1 class="logo pull-left">
+                <a href="/">
+                    <!-- <img src="../img_warship/logo.jpg" alt="" class="logo-img"> -->
+                </a>
+            </h1>
+            <div class="layui-nav pull-right">
+                <ul class="layui-nav pull-left">
+                  <li class="layui-nav-item layui-this"><a href="/">首页</a></li>
+                  <li class="layui-nav-item"><a href="about">关于</a></li>
+                </ul>
+
+            </div>
+            <div class="mobile-nav pull-right" id="mobile-nav">
+                <a href="javascript:;">
+                    <i class="layui-icon layui-icon-more"></i>
+                </a>
+            </div>
+        </div>
+        <ul class="pop-nav" id="pop-nav">
+            <li><a href='/'>首页</a></li>
+            <li><a href="about">关于</a></li>
+        </ul>
+    </div>
+    <div class="container-wrap">
+        <div class="container container-message container-details container-about">
+                <div class="contar-wrap">
+                    <div class="item">
+                        <div class="moresearch" align="center">
+                            <a href='/' style="color:rgb(0, 102, 255)">网页搜索</a>&nbsp;
+                            <a href='/im' style="color:rgb(0, 102, 255)">图片搜索</a>
+                                <form action="result">
+                                    <label>商品信息</label>
+                                    <input type="keyword" name="keyword">
+                                    <input type="submit" name="Search">
+                                    <br>
+                                </form>
+                                
+						</div>
+					</div>	
+						<br>
+					<div class="item">
+						{% for k in range(pic_li | length) %}
+					           <div class="imgres" align="center">
+								<img height="230px;" src={{ pic_li[k][2] }}></img>
+							   </div>
+								<br>
+								<a href = {{ pic_li[k][1] }} style="font-size:20px;font-style:italic:font-weight:bold;color:blue"><i>{{ pic_li[k][0] }}</i></a>
+								<br>
+							
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+
+        </div>
+    </div>
+ 
+    <div class="footer">
+        <p>
+           <span>2020 12</span>
+           <span><a href="about" target="_blank">小组相关</a></span>
+           <span>Group 25</span>
+       </p>
+       </div>
+</body>
+<script src="/static/js/layui.js"></script>
+<script>
+layui.use([ 'layer', 'element'], function(){
+  layer = layui.layer //弹层
+  ,element = layui.element //元素操作
+  
+  //向世界问个好
+  layer.msg('Hello World');
+  
+  //监听Tab切换
+  element.on('tab(demo)', function(data){
+    layer.tips('切换了 '+ data.index +'：'+ this.innerHTML, this, {
+      tips: 1
+    });
+  });
+  
+  //底部信息
+  var footerTpl = lay('#footer')[0].innerHTML;
+  lay('#footer').html(layui.laytpl(footerTpl).render({}))
+  .removeClass('layui-hide');
+});
+</script>
+</body>
+</html> 
